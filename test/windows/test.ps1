@@ -8,7 +8,7 @@ Get-ChildItem -Path $PACKAGES -Filter "*.ipa" | ForEach-Object {
     
     $zsignOutput = & ..\..\bin\zsign.exe -q -i -U -k $PRIVATE_KEY -m $MOBILE_PROVISION $file 2>&1
     $exitCode = $LASTEXITCODE
-    
+   
     if ($exitCode -eq 0) {
         Write-Host -ForegroundColor Green "OK."
     } else {
